@@ -1,15 +1,24 @@
 // Act on form submission
 $('#encrypt').submit(function(){
-	input = $('#encrypttext')[0].value;
-	key = $('#encryptkey')[0].value;
-	encrypt(input, key);
+	if($('#encryptkey')[0].value != ""){
+		input = $('#encrypttext')[0].value;
+		key = $('#encryptkey')[0].value;
+		encrypt(input, key);
+		return false;
+	} else {
+		alert("Key cannot be blank!");
+	}
 	return false;
 });
 
 $('#decrypt').submit(function(){
-	input = $('#decrypttext')[0].value;
-	key = $('#decryptkey')[0].value;
-	decrypt(input, key);
+	if($('#decryptkey')[0].value != ""){
+		input = $('#decrypttext')[0].value;
+		key = $('#decryptkey')[0].value;
+		decrypt(input, key);
+	} else {
+		alert("Key cannot be blank!");
+	}
 	return false;
 });
 
